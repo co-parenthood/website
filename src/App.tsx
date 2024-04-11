@@ -1,4 +1,4 @@
-import Blog from './Content/Blog.tsx'
+import {Blog} from './Content/Blog.tsx'
 
 function App() {
     return <Blog />
