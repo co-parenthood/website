@@ -13,6 +13,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Markdown from './Markdown';
+import post1 from './blog-post.1.md';
+import post2 from './blog-post.2.md';
+import post3 from './blog-post.3.md';
 
 const styles = (theme: any) => ({
     layout: {
@@ -96,7 +99,9 @@ const featuredPosts = [
     },
 ];
 
-const posts: string[] = [];
+const posts = [post1, post2, post3];
+
+console.error(posts)
 
 const archives = [
     'March 2020',
