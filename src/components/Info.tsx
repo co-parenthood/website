@@ -1,5 +1,5 @@
 import { withStyles } from '@material-ui/core/styles'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { CommunityRoute } from '../routes.ts'
 
 const styles = () => ({
