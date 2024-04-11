@@ -3,6 +3,8 @@ import Typography from '@material-ui/core/Typography'
 import { Contents } from '../contents.ts'
 import { Black, LightBackground } from '../theme.ts'
 import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import ReactGA from 'react-ga4'
 
 const ItemsMargin = '2rem'
 
@@ -43,6 +45,11 @@ type Classes = Record<keyof ReturnType<typeof styles>, string>
 export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
     const navigate = useNavigate()
     const { main: items } = Contents
+
+    useEffect(() => {
+        ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+    }, []);
+
     return (
         <div className={classes.main}>
             {items.map((item, index) => {
