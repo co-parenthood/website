@@ -1,10 +1,10 @@
-import {Theme, withStyles} from '@material-ui/core/styles'
+import { Theme, withStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import {Footer} from "./Footer.tsx";
-import {Title} from "./Title.tsx";
-import {Main} from "./Main.tsx";
+import { Footer } from './Footer.tsx'
+import { Title } from './Title.tsx'
+import { Main } from './Main.tsx'
 
 const styles = (theme: Theme) => ({
     layout: {
@@ -20,7 +20,7 @@ const styles = (theme: Theme) => ({
     toolbarSecondary: {
         justifyContent: 'space-between',
     },
-    
+
     card: {
         display: 'flex',
     },
@@ -35,24 +35,22 @@ type Classes = Record<keyof ReturnType<typeof styles>, string>
 
 const sections = ['מאמרים', 'פודקאסט', 'הסכם לדוגמא', 'ספקים']
 
-
-export const Blog = withStyles(styles)(({classes}: { classes: Classes }) => {
-        return (
-            <div dir="rtl">
-                <CssBaseline/>
-                <div className={classes.layout}>
-                   <Title/>
-                    <Toolbar variant="dense" className={classes.toolbarSecondary}>
-                        {sections.map((section) => (
-                            <Typography color="inherit" noWrap key={section}>
-                                {section}
-                            </Typography>
-                        ))}
-                    </Toolbar>
-                    <Main/>
-                </div>
-                <Footer/>
+export const Blog = withStyles(styles)(({ classes }: { classes: Classes }) => {
+    return (
+        <>
+            <CssBaseline />
+            <div className={classes.layout}>
+                <Title />
+                <Toolbar variant="dense" className={classes.toolbarSecondary}>
+                    {sections.map((section) => (
+                        <Typography color="inherit" noWrap key={section}>
+                            {section}
+                        </Typography>
+                    ))}
+                </Toolbar>
+                <Main />
             </div>
-        )
-    }
-)
+            <Footer />
+        </>
+    )
+})

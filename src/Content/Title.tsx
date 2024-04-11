@@ -1,6 +1,6 @@
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import {Theme, withStyles} from '@material-ui/core/styles'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import { Theme, withStyles } from '@material-ui/core/styles'
 
 const styles = (theme: Theme) => ({
     toolbarMain: {
@@ -8,12 +8,11 @@ const styles = (theme: Theme) => ({
     },
     toolbarTitle: {
         flex: 1,
-    }
+    },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
-
-export const Title = withStyles(styles)(({classes}: ({ classes: Classes })) =>
+export const Title = withStyles(styles)(({ classes }: { classes: Classes }) => (
     <Toolbar className={classes.toolbarMain}>
         <Typography
             component="h2"
@@ -25,4 +24,5 @@ export const Title = withStyles(styles)(({classes}: ({ classes: Classes })) =>
         >
             מידעון הורות משותפת
         </Typography>
-    </Toolbar>)
+    </Toolbar>
+))

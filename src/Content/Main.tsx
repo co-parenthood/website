@@ -1,12 +1,12 @@
-import {Theme, withStyles} from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import {Markdown} from "./Markdown.tsx";
-import post1 from "../md/blog-post.1.md";
-import post2 from "../md/blog-post.2.md";
-import post3 from "../md/blog-post.3.md";
+import { Theme, withStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Divider from '@material-ui/core/Divider'
+import { Markdown } from './Markdown.tsx'
+import post1 from '../md/blog-post.1.md'
+import post2 from '../md/blog-post.2.md'
+import post3 from '../md/blog-post.3.md'
 
 const styles = (theme: Theme) => ({
     mainFeaturedPost: {
@@ -38,14 +38,12 @@ type Classes = Record<keyof ReturnType<typeof styles>, string>
 
 const posts = [post1, post2, post3]
 
-export const Main = withStyles(styles)(({classes}: ({ classes: Classes })) =>
+export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => (
     <main>
         <Paper className={classes.mainFeaturedPost}>
             <Grid container>
                 <Grid item md={6}>
-                    <div
-                        className={classes.mainFeaturedPostContent}
-                    >
+                    <div className={classes.mainFeaturedPostContent}>
                         <Typography
                             component="h1"
                             variant="h3"
@@ -54,15 +52,10 @@ export const Main = withStyles(styles)(({classes}: ({ classes: Classes })) =>
                         >
                             Title of a longer featured blog post
                         </Typography>
-                        <Typography
-                            variant="h5"
-                            color="inherit"
-                            paragraph
-                        >
-                            Multiple lines of text that form the
-                            lede, informing new readers quickly and
-                            efficiently about what&apos;s most
-                            interesting in this post&apos;s
+                        <Typography variant="h5" color="inherit" paragraph>
+                            Multiple lines of text that form the lede, informing
+                            new readers quickly and efficiently about
+                            what&apos;s most interesting in this post&apos;s
                             contents…
                         </Typography>
                     </div>
@@ -74,7 +67,7 @@ export const Main = withStyles(styles)(({classes}: ({ classes: Classes })) =>
                 <Typography variant="h6" gutterBottom>
                     From the Firehose
                 </Typography>
-                <Divider/>
+                <Divider />
                 {posts.map((post) => (
                     <Markdown
                         className={classes.markdown}
@@ -87,18 +80,14 @@ export const Main = withStyles(styles)(({classes}: ({ classes: Classes })) =>
             {/* End main content */}
             {/* Sidebar */}
             <Grid item xs={12} md={4}>
-                <Paper
-                    elevation={0}
-                    className={classes.sidebarAboutBox}
-                >
+                <Paper elevation={0} className={classes.sidebarAboutBox}>
                     <Typography variant="h6" gutterBottom>
                         About
                     </Typography>
                     <Typography>
-                        Etiam porta sem malesuada magna mollis
-                        euismod. Cras mattis consectetur purus sit
-                        amet fermentum. Aenean lacinia bibendum
-                        nulla sed consectetur.
+                        Etiam porta sem malesuada magna mollis euismod. Cras
+                        mattis consectetur purus sit amet fermentum. Aenean
+                        lacinia bibendum nulla sed consectetur.
                     </Typography>
                 </Paper>
                 <Typography
@@ -112,4 +101,4 @@ export const Main = withStyles(styles)(({classes}: ({ classes: Classes })) =>
             {/* End sidebar */}
         </Grid>
     </main>
-)
+))
