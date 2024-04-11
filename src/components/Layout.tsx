@@ -4,6 +4,7 @@ import { Header } from './Header.tsx'
 import { Outlet } from 'react-router-dom'
 import { Footer } from './Footer.tsx'
 import styled from '@emotion/styled'
+import { Black } from '../theme.ts'
 
 const Container = styled.div`
     display: flex;
@@ -15,6 +16,7 @@ const Container = styled.div`
 const MainContents = styled.div`
     height: 100%;
     flex: 1;
+    background-color: ${Black};
 `
 
 export const Layout = () => (
