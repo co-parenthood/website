@@ -1,23 +1,21 @@
-import { Theme, withStyles } from '@material-ui/core/styles'
-// import { clsx } from 'clsx'
-import { YellowMain } from '../theme.ts'
+import { withStyles } from '@material-ui/core/styles'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { CommunityRoute } from '../routes.ts'
 
-const styles = (theme: Theme) => ({
+const styles = () => ({
     mainContainer: {
         width: '100%',
         height: '100%',
         backgroundColor: 'black',
         color: 'white',
-        fontSize: '16px'
+        fontSize: '1rem'
     },
     header: {
         height: '100px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '37px',
+        fontSize: '2rem',
     },
     hero: {
         backgroundColor: '#178c98',
@@ -36,7 +34,7 @@ const styles = (theme: Theme) => ({
         padding: '17px'
     },
     title: {
-        fontSize: '30px'
+        fontSize: '1.5rem'
     }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
@@ -46,7 +44,6 @@ export const Info = withStyles(styles)(({
 }: {
     classes: Classes
 }) => {
-    const navigate = useNavigate()
     const { pathname } = useLocation()
     if (pathname.endsWith(CommunityRoute)) {
         return
