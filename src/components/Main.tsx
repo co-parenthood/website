@@ -47,8 +47,20 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
     const { main: items } = Contents
 
     useEffect(() => {
-        ReactGA.send({ hitType: "pageview", page: window.location.pathname });
-    }, []);
+        ReactGA.send({ hitType: 'pageview', page: window.location.pathname })
+    }, [])
+
+    const handleButtonClick = (pageClicked: string) => {
+        ReactGA.event({
+            category: 'User',
+            action: pageClicked
+        });
+    };
+
+    const clickNavigate = (route: string) => {
+        handleButtonClick(route)
+        navigate(route)
+    }
 
     return (
         <div className={classes.main}>
@@ -64,7 +76,7 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
                     <div
                         key={item.route}
                         className={classes.item}
-                        onClick={() => navigate(item.route)}
+                        onClick={() => clickNavigate(item.route)}
                         style={{
                             marginTop: index % 2 === 0 ? 'none' : ItemsMargin,
                             height:
