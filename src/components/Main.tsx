@@ -39,6 +39,7 @@ const styles = (theme: Theme) => ({
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
+// @ts-ignore
 export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
     const navigate = useNavigate()
     const { main: items } = Contents
