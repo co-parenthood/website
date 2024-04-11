@@ -3,8 +3,8 @@
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: inherit;
+    background-color: white;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -23,12 +23,13 @@ body {
     --w: 12em;
     --border-size: 3px;
     --text-color: black;
-    --bubble-color: white;
-    --border-color: black;
+    --bubble-color: #fecc31;
+    --border-color: transparent;
 }
+
 .speech-bubble {
     text-align: center;
-    font-size: 20px;
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--text-color);
     background: var(--bubble-color);
@@ -36,15 +37,10 @@ body {
     position: relative;
     border-radius: var(--bubble-corners);
     max-width: var(--w);
-    box-shadow: 0 0 0 var(--border-size) var(--border-color);
 }
 
 .speech-bubble.round {
-    --bubble-corners: 1em;
-}
-
-.speech-bubble.round {
-    --bubble-corners: 1em;
+    --bubble-corners: 1.5em;
 }
 
 .speech-bubble:before,
@@ -52,16 +48,19 @@ body {
     content: '';
     position: absolute;
     bottom: calc(-1 * var(--arrow-h) * 2 + 0.5px);
-    left: 50%;
+    left: 20%;
     border-style: solid;
     border-width: var(--arrow-h) var(--arrow-w);
     border-color: var(--bubble-color) transparent transparent;
 }
 
 .speech-bubble:before {
-    border-width: calc(var(--arrow-h) + var(--border-size))
-        calc(var(--arrow-w) + var(--border-size));
+    border-width: calc(var(--arrow-h) + var(--border-size)) calc(var(--arrow-w) + var(--border-size));
     border-color: var(--border-color) transparent transparent;
     bottom: calc(-1 * var(--arrow-h) * 2 - 2.5 * var(--border-size));
     left: calc(50% - var(--border-size));
+}
+
+.MuiSvgIcon-fontSizeLarge {
+    font-size: 4rem !important;
 }

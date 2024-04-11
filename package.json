@@ -20,9 +20,9 @@
         "@mui/x-charts": "^7.1.1",
         "add": "^2.0.6",
         "clsx": "^2.1.0",
-        "markdown-to-jsx": "^7.4.6",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-router-dom": "^6.22.3",
         "yarn": "^1.22.22"
     },
     "devDependencies": {

@@ -1,5 +1,6 @@
 import Typography from '@material-ui/core/Typography'
 import { Theme, withStyles } from '@material-ui/core/styles'
+import { LightBackground } from '../theme.ts'
 
 const lgbtqCenterImageUrl =
     'https://lgbtqcenter.org.il/wp-content/uploads/2024/01/TLV_17933_pride-logo-color222.png'
@@ -9,9 +10,9 @@ const styles = (theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        backgroundColor: theme.palette.background.paper,
-        marginTop: theme.spacing(8),
-        paddingBottom: theme.spacing(2),
+        backgroundColor: LightBackground,
+        paddingTop: theme.spacing(1),
+        paddingBottom: theme.spacing(1),
     },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
