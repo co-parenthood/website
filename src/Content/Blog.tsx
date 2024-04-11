@@ -61,10 +61,10 @@ const styles = (theme: any) => ({
         width: 160,
     },
     markdown: {
-        padding: `${theme.spacing.unit * 3}px 0`,
+        // padding: `${theme.spacing.unit * 3}px 0`,
     },
     sidebarAboutBox: {
-        padding: theme.spacing.unit * 2,
+        // padding: theme.spacing.unit * 2,
         backgroundColor: theme.palette.grey[200],
     },
     sidebarSection: {
@@ -72,22 +72,16 @@ const styles = (theme: any) => ({
     },
     footer: {
         backgroundColor: theme.palette.background.paper,
-        marginTop: theme.spacing.unit * 8,
-        padding: `${theme.spacing.unit * 6}px 0`,
+         marginTop: theme.spacing.unit * 8,
+        // padding: `${theme.spacing.unit * 6}px 0`,
     },
 });
 
 const sections = [
-    'Technology',
-    'Design',
-    'Culture',
-    'Business',
-    'Politics',
-    'Opinion',
-    'Science',
-    'Health',
-    'Style',
-    'Travel',
+    'מאמרים',
+    'פודקאסט',
+    'הסכם לדוגמא',
+    'ספקים',
 ];
 
 const featuredPosts = [
@@ -130,11 +124,10 @@ function Blog(props: any) {
     const { classes } = props;
 
     return (
-        <React.Fragment>
+        <React.Fragment >
             <CssBaseline />
-            <div className={classes.layout}>
+            <div dir="rtl" className={classes.layout}>
                 <Toolbar className={classes.toolbarMain}>
-                    <Button size="small">Subscribe</Button>
                     <Typography
                         component="h2"
                         variant="h5"
@@ -143,16 +136,10 @@ function Blog(props: any) {
                         noWrap
                         className={classes.toolbarTitle}
                     >
-                        Blog
+                        מידעון הורות משותפת
                     </Typography>
-                    <IconButton>
-                        <SearchIcon />
-                    </IconButton>
-                    <Button variant="outlined" size="small">
-                        Sign up
-                    </Button>
                 </Toolbar>
-                <Toolbar variant="dense" className={classes.toolbarSecondary}>
+                <Toolbar  variant="dense" className={classes.toolbarSecondary}>
                     {sections.map(section => (
                         <Typography color="inherit" noWrap key={section}>
                             {section}
