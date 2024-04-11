@@ -15,6 +15,7 @@ const styles = (theme: Theme) => ({
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
+// @ts-ignore
 export const Balloon = withStyles(styles)(({
     classes,
 }: {

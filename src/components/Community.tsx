@@ -99,6 +99,7 @@ const InputItem = ({
     </div>
 )
 
+// @ts-ignore
 export const Community = withStyles(styles)(({
     classes,
 }: {

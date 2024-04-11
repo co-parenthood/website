@@ -9,6 +9,7 @@ import {
     ProvidersRoute,
 } from './routes.ts'
 import { Community } from './components/Community.tsx'
+import { Info } from './components/Info.tsx'
 
 export const Router = () => (
     <BrowserRouter>
@@ -16,7 +17,7 @@ export const Router = () => (
             <Route path="/" element={<Layout />}>
                 <Route index element={<Main />} />
                 <Route path={GroupsRoute} element={<div>ok</div>} />
-                <Route path={InfoRoute} element={<div>ok</div>} />
+                <Route path={InfoRoute} element={<Info/>} />
                 <Route path={ProvidersRoute} element={<div>ok</div>} />
                 <Route path={ContractsRoute} element={<div>ok</div>} />
                 <Route path={CommunityRoute} element={<Community />} />

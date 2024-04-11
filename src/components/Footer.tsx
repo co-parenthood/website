@@ -17,6 +17,7 @@ const styles = (theme: Theme) => ({
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
+// @ts-ignore
 export const Footer = withStyles(styles)(
     ({ classes }: { classes: Classes }) => (
         <footer className={classes.footer}>
