@@ -6,8 +6,6 @@ import {
     YellowSecondary,
 } from '../theme.ts'
 import { clsx } from 'clsx'
-import Typography from '@material-ui/core/Typography'
-import { Box } from '@mui/material'
 import { useState } from 'react'
 import { Contents } from '../contents.ts'
 
@@ -86,119 +84,9 @@ const styles = (theme: Theme) => ({
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
-const InputItem = ({
-    title,
-    classes,
-    xl,
-    value,
-    setValue,
-}: {
-    value: string | undefined
-    setValue: (value: string) => void
-    title: string
-    classes: Classes
-    xl?: boolean
-}) => (
-    <div className={classes.row}>
-        <div className={classes.label}>{title}</div>
-        {xl ? (
-            <textarea
-                className={clsx(classes.input, classes.textarea)}
-                rows={6}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
-        ) : (
-            <input
-                className={classes.input}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
-        )}
-    </div>
-)
-
 // @ts-ignore
 export const Join = withStyles(styles)(({ classes }: { classes: Classes }) => {
-    const [state, setState] = useState<Message>({
-        email: undefined,
-        name: undefined,
-        phone: undefined,
-        subject: 'ליווי בהורות משותפת',
-        message: '',
-    })
     return (
-        // <div className={clsx(classes.main, 'speech-bubble', 'round')}>
-        //     <Typography
-        //         component="h2"
-        //         variant="h3"
-        //         align="right"
-        //         color="textPrimary"
-        //         noWrap
-        //     >
-        //         ליווי בתהליך
-        //     </Typography>
-        //     <Box className={classes.container}>
-        //         <div className={classes.row} style={{ gap: '2rem' }}>
-        //             <div>
-        //                 <InputItem
-        //                     classes={classes}
-        //                     title="שם:"
-        //                     value={state.name}
-        //                     setValue={(name) =>
-        //                         setState((s) => ({ ...s, name }))
-        //                     }
-        //                 />
-        //                 <InputItem
-        //                     classes={classes}
-        //                     title="סלולרי:"
-        //                     value={state.phone}
-        //                     setValue={(phone) =>
-        //                         setState((s) => ({ ...s, phone }))
-        //                     }
-        //                 />
-        //                 <InputItem
-        //                     classes={classes}
-        //                     title="דוא״ל:"
-        //                     value={state.email}
-        //                     setValue={(email) =>
-        //                         setState((s) => ({ ...s, email }))
-        //                     }
-        //                 />
-        //             </div>
-        //             <div>
-        //                 <InputItem
-        //                     classes={classes}
-        //                     title="נושא ההודעה:"
-        //                     value={state.subject}
-        //                     setValue={(subject) =>
-        //                         setState((s) => ({ ...s, subject }))
-        //                     }
-        //                 />
-        //                 <InputItem
-        //                     classes={classes}
-        //                     title="הודעה:"
-        //                     xl
-        //                     value={state.message}
-        //                     setValue={(message) =>
-        //                         setState((s) => ({ ...s, message }))
-        //                     }
-        //                 />
-        //                 <div
-        //                     className={classes.row}
-        //                     style={{ justifyContent: 'end' }}
-        //                 >
-        //                     <button
-        //                         className={classes.button}
-        //                         onClick={() => alert(JSON.stringify(state))}
-        //                     >
-        //                         שליחה
-        //                     </button>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </Box>
-        // </div>
         <div className={classes.mainContainer}>
             <div className={classes.note}>
                 <div>לליווי או ללוות תהליך</div>
