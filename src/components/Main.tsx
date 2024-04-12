@@ -50,7 +50,7 @@ const styles = (theme: Theme) => ({
     itemOdd: {
         borderRadius: isMobile ? `1rem 0 0 1rem` : `1rem 1rem 0 0`,
         marginTop: isMobile ? 'unset' : ItemsMargin,
-        width: isMobile ? `calc(100% - ${ItemsMargin})` : 'unset',
+        width: isMobile ? `calc(100% - ${ItemsMargin})` : '100%',
         height: isMobile ? 200 : `calc(100% - ${ItemsMargin})`,
         backgroundColor: LightBackground,
         transition: 'transform 0.2s ease, background-color 0.2s ease',
