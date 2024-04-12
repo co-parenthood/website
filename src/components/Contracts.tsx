@@ -45,6 +45,8 @@ const styles = () => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700',
         flexDirection: 'column',
         '&:hover': {
             transform: 'scale(1.05)',

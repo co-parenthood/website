@@ -37,6 +37,7 @@ const styles = (theme: Theme) => ({
     },
     title: {
         fontSize: '1.5rem',
+        fontFamily: '"Amatic SC", sans-serif',
     },
     wiki: {
         marginTop: theme.spacing(2),
