@@ -5,17 +5,8 @@ import {
     YellowMain,
     YellowSecondary,
 } from '../theme.ts'
-import { clsx } from 'clsx'
-import { useState } from 'react'
 import { Contents } from '../contents.ts'
-
-type Message = {
-    name: string | undefined
-    phone: string | undefined
-    email: string | undefined
-    subject: string
-    message: string
-}
+import { isMobile } from '../utils/mobile.ts'
 
 const styles = (theme: Theme) => ({
     main: {
@@ -74,17 +65,15 @@ const styles = (theme: Theme) => ({
         backgroundColor: '#ebeef1',
     },
     note: {
-        backgroundImage: `url(${'/legal-pad.png'})`,
-        width: '500px',
-        height: '500px',
+        backgroundImage: `url(/legal-pad.png)`,
+        backgroundPosition: isMobile ? 'top' : 'unset',
+        width: isMobile ? '80vw' : 500,
+        height: isMobile ? '120vw' : 500,
         boxShadow: '-0.5em 0 .4em grey',
-        marginTop: '30px',
+        marginTop: theme.spacing(4),
         rotate: '-4deg',
         fontSize: '2.9rem',
-        padding: '82px 42px 0',
-    },
-    link: {
-        color: 'blue',
+        padding: isMobile ? '48px 42px 0' : '82px 42px 0',
     },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
@@ -102,7 +91,7 @@ export const Join = withStyles(styles)(({ classes }: { classes: Classes }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-               המרכז הגאה
+                    המרכז הגאה
                 </a>
             </div>
         </div>
