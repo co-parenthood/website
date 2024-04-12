@@ -77,8 +77,11 @@ const styles = (theme: Theme) => ({
         backgroundImage: `url(${'/legal-pad.png'})`,
         width: '500px',
         height: '500px',
+        boxShadow: '-0.5em 0 .4em grey',
+        marginTop: '30px',
+        rotate: '-4deg',
         fontSize: '2.9rem',
-        padding: '78px',
+        padding: '82px 42px 0',
     },
     link: {
         color: 'blue',
@@ -92,14 +95,14 @@ export const Join = withStyles(styles)(({ classes }: { classes: Classes }) => {
         <div className={classes.mainContainer}>
             <div className={classes.note}>
                 <div>לליווי או ללוות תהליך</div>
-                <div>צרו קשר</div>
+                <div>צרו קשר 🌈</div>
                 <a
                     style={{ color: 'blue' }}
                     href={Contents.join.link}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    המרכז הגאה
+               המרכז הגאה
                 </a>
             </div>
         </div>
