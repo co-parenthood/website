@@ -2,7 +2,6 @@ import {  withStyles } from '@material-ui/core/styles'
 import {Link} from 'react-router-dom';
 const styles = () => ({
  main: {
-    padding: '10px',
     backgroundColor: '#FFCC31',
     height: '100%',
     color: 'black'
@@ -17,10 +16,18 @@ const styles = () => ({
  },
  item : {
     color: 'black',
-    margin: '10px',
     textDecoration: 'none',
     fontSize: '1.5rem',
-    fontWeight: '600'
+    fontWeight: '600',
+    padding: '15px',
+    width: '100%',
+    boxSizing: 'border-box',
+    transition: 'transform 0.2s ease, background-color 0.2s ease', 
+    '&:hover': { 
+        transform: 'scale(1.03)', 
+        backgroundColor: '#ffe69b' 
+    }
+    
  }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
