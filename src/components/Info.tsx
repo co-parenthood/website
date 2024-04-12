@@ -33,7 +33,7 @@ const styles = (theme: Theme) => ({
     info: {
         width: '100%',
         height: '100%',
-        padding: theme.spacing(isMobile ? 1 : 4),
+        padding: theme.spacing(isMobile ? 3 : 4),
     },
     paragraph: {
         marginTop: theme.spacing(1),
