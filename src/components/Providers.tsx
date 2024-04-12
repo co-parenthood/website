@@ -27,7 +27,7 @@ const styles = () => ({
     },
     hero: {
         backgroundColor: '#dd92bb',
-        height: '500px',
+        height: '465px',
         display: 'grid',
         gridTemplateColumns: 'auto auto',
         gap: '10px',
