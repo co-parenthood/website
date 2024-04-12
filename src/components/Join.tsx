@@ -9,6 +9,7 @@ import { clsx } from 'clsx'
 import Typography from '@material-ui/core/Typography'
 import { Box } from '@mui/material'
 import { useState } from 'react'
+import { Contents } from '../contents.ts'
 
 type Message = {
     name: string | undefined
@@ -200,11 +201,13 @@ export const Join = withStyles(styles)(({ classes }: { classes: Classes }) => {
         // </div>
         <div className={classes.mainContainer}>
             <div className={classes.note}>
-                <div>לליווי או ללוות תהליך </div>
+                <div>לליווי או ללוות תהליך</div>
                 <div>צרו קשר</div>
                 <a
                     style={{ color: 'blue' }}
-                    href="https://lgbtqcenter.org.il/%D7%A6%D7%A8%D7%95-%D7%A7%D7%A9%D7%A8/"
+                    href={Contents.join.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     המרכז הגאה
                 </a>
