@@ -9,22 +9,22 @@ export const Contents = {
     main: [
         {
             route: InfoRoute,
-            image: 'https://i.imgur.com/Lrsmu19.png',
+            image: 'joint-parenting.png',
             title: 'מהי הורות משותפת',
         },
         {
             route: ContractsRoute,
-            image: 'https://i.imgur.com/Lrsmu19.png',
+            image: 'document.png',
             title: 'הסכם הורות משותפת לדוגמא',
         },
         {
             route: ProvidersRoute,
-            image: 'https://i.imgur.com/Lrsmu19.png',
+            image: 'services.png',
             title: 'נותני שירותים',
         },
         {
             route: GroupsRoute,
-            image: 'https://i.imgur.com/Lrsmu19.png',
+            image: 'comunity.png',
             title: 'קבוצות פייסבוק',
         },
     ],
