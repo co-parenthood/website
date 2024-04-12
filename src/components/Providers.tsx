@@ -4,6 +4,7 @@ import { JoinRoute } from '../routes.ts'
 import { Contents } from '../contents.ts'
 import { Black } from '../theme.ts'
 import { Tooltip } from '@mui/material'
+import { isMobile } from '../utils/mobile.ts'
 
 const styles = (theme: Theme) => ({
     mainContainer: {
@@ -14,43 +15,43 @@ const styles = (theme: Theme) => ({
         fontSize: '1rem',
     },
     content: {
-        width: 'calc(100% - 220px)',
         display: 'flex',
+        padding: theme.spacing(1),
         flexDirection: 'column',
         justifyContent: 'start',
-        padding: theme.spacing(4),
         height: '100%',
         color: 'black',
         gap: theme.spacing(4),
     },
     header: {
         fontFamily: '"Amatic SC", sans-serif',
-        height: '100px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '2rem',
+        fontSize: isMobile ? '1.5rem' : '2rem',
         userSelect: 'none',
+        padding: theme.spacing(isMobile ? 1 : 2),
     },
     hero: {
         backgroundColor: '#dd92bb',
-        height: '465px',
+        height: 'fit-content',
         display: 'grid',
-        gridTemplateColumns: 'auto auto',
-        gap: '10px',
-        padding: '10px',
+        gridTemplateColumns: isMobile ? 'auto' : 'auto auto',
+        gap: theme.spacing(isMobile ? 1 : 2),
+        padding: theme.spacing(2),
     },
     infoItem: {
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         width: '100%',
         height: '100%',
         backgroundColor: '#fcf1f152',
-        borderRadius: '10px',
+        borderRadius: '1rem',
+        padding: theme.spacing(1),
+        gap: theme.spacing(2),
+        alignItems: 'center',
     },
     img: {
-        borderRadius: '18px',
+        borderRadius: '1rem',
         objectFit: 'cover',
     },
     categoryTitle: {
@@ -58,8 +59,8 @@ const styles = (theme: Theme) => ({
         fontSize: '1.5rem',
         color: '#a34545',
         fontWeight: '700',
-        textDecoration: 'underline',
         fontFamily: '"Amatic SC", sans-serif',
+        userSelect: 'none',
     },
     links: {
         display: 'flex',
@@ -88,30 +89,34 @@ export const Providers = withStyles(styles)(({
                         <img
                             src={provider.image}
                             alt={provider.title}
-                            width={200}
-                            height={200}
+                            height={isMobile ? 120 : 200}
+                            width={isMobile ? 120 : 200}
                             className={classes.img}
                         ></img>
                         <div className={classes.content}>
                             <div className={classes.categoryTitle}>
                                 {provider.title}
                             </div>
-                            <ul className={classes.links}>
+                            <div className={classes.links}>
                                 {provider.links.map((link) => (
-                                    <li key={link.title}>
-                                        <Tooltip title={link.url}>
-                                            <a
-                                                href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                style={{ color: Black }}
-                                            >
-                                                {link.title}
-                                            </a>
-                                        </Tooltip>
-                                    </li>
+                                    <div key={link.title}>
+                                        {link.url ? (
+                                            <Tooltip title={link.url}>
+                                                <a
+                                                    href={link.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    style={{ color: Black }}
+                                                >
+                                                    {link.title}
+                                                </a>
+                                            </Tooltip>
+                                        ) : (
+                                            link.title
+                                        )}
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 ))}

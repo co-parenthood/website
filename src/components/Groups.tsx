@@ -1,9 +1,10 @@
-import { withStyles } from '@material-ui/core/styles'
+import { Theme, withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
 import { JoinRoute } from '../routes.ts'
 import { Contents } from '../contents.ts'
+import { isMobile } from '../utils/mobile.ts'
 
-const styles = () => ({
+const styles = (theme: Theme) => ({
     mainContainer: {
         width: '100%',
         height: '100%',
@@ -12,42 +13,44 @@ const styles = () => ({
         fontSize: '1rem',
     },
     content: {
-        width: 'calc(100% - 220px)',
         display: 'flex',
         justifyContent: 'center',
-        padding: '30px',
+        padding: theme.spacing(1),
         height: '100%',
+        gap: theme.spacing(4),
     },
     header: {
         fontFamily: '"Amatic SC", sans-serif',
-        height: '100px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '2rem',
+        fontSize: isMobile ? '1.5rem' : '2rem',
         userSelect: 'none',
+        padding: theme.spacing(isMobile ? 1 : 2),
     },
     hero: {
         backgroundColor: '#e7a14d',
-        height: '465px',
         display: 'flex',
         justifyContent: 'space-around',
-        padding: '40px',
+        padding: theme.spacing(2),
         flexDirection: 'column',
     },
     title: {
-        fontSize: '2rem',
+        fontSize: isMobile ? '1.5rem' : '2rem',
         fontFamily: '"Amatic SC", sans-serif',
+        paddingBottom: theme.spacing(1),
     },
     group: {
         display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
+        gap: theme.spacing(2),
         cursor: 'pointer',
         justifyContent: 'space-between',
         backgroundColor: '#6c4c3659',
-        padding: '10px',
-        height: '120px',
-        marginBottom: '10px',
-        borderRadius: '10px',
+        padding: theme.spacing(2),
+        margin: theme.spacing(1),
+        height: 'fit-content',
+        borderRadius: '1rem',
         transition: 'transform 0.2s ease, background-color 0.2s ease',
         '&:hover': {
             transform: 'scale(1.03)',
@@ -55,13 +58,17 @@ const styles = () => ({
         },
     },
     groupText: {
-        width: 'calc(100% - 300px)',
-        fontSize: '1.2rem',
+        width: '100%',
+        fontSize: '1rem',
     },
     link: {
         width: '1180px',
         height: '120px',
         position: 'absolute',
+    },
+    image: {
+        borderRadius: '1rem',
+        objectFit: 'cover',
     },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
@@ -86,7 +93,8 @@ export const Groups = withStyles(styles)(({
                         <img
                             src={group.image}
                             alt={group.title}
-                            width="270px"
+                            height={120}
+                            className={classes.image}
                         />
                     )
                     return (
