@@ -64,12 +64,14 @@ const styles = (theme: Theme) => ({
         },
     },
     mainContainer: {
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700',
         width: '100%',
         height: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#6f739b',
+        backgroundColor: '#ebeef1',
     },
     note: {
         backgroundImage: `url(${'/legal-pad.png'})`,

@@ -6,6 +6,7 @@ import { isMobile } from '../utils/mobile.ts'
 
 const styles = (theme: Theme) => ({
     main: {
+        fontFamily: '"Amatic SC", sans-serif',
         backgroundColor: YellowMain,
         height: '100%',
         color: 'black',
@@ -56,7 +57,7 @@ export const Menu = withStyles(styles)(
                     </Link>
                 ))}
                 <Link
-                    to="/community"
+                    to="/join"
                     className={classes.item}
                     onClick={() => close()}
                 >

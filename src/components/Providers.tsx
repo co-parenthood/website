@@ -20,9 +20,11 @@ const styles = (theme: Theme) => ({
         justifyContent: 'start',
         padding: theme.spacing(4),
         height: '100%',
+        color: 'black',
         gap: theme.spacing(4),
     },
     header: {
+        fontFamily: '"Amatic SC", sans-serif',
         height: '100px',
         display: 'flex',
         justifyContent: 'center',
@@ -37,9 +39,6 @@ const styles = (theme: Theme) => ({
         gridTemplateColumns: 'auto auto',
         gap: '10px',
         padding: '10px',
-    },
-    title: {
-        fontSize: '1.5rem',
     },
     infoItem: {
         display: 'flex',
@@ -58,7 +57,9 @@ const styles = (theme: Theme) => ({
         width: '100%',
         fontSize: '1.5rem',
         color: '#a34545',
-        fontWeight: '600',
+        fontWeight: '700',
+        textDecoration: 'underline',
+        fontFamily: '"Amatic SC", sans-serif',
     },
     links: {
         display: 'flex',
@@ -95,9 +96,9 @@ export const Providers = withStyles(styles)(({
                             <div className={classes.categoryTitle}>
                                 {provider.title}
                             </div>
-                            <div className={classes.links}>
+                            <ul className={classes.links}>
                                 {provider.links.map((link) => (
-                                    <div key={link.title}>
+                                    <li key={link.title}>
                                         <Tooltip title={link.url}>
                                             <a
                                                 href={link.url}
@@ -108,9 +109,9 @@ export const Providers = withStyles(styles)(({
                                                 {link.title}
                                             </a>
                                         </Tooltip>
-                                    </div>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 ))}

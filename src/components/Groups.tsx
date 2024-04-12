@@ -19,6 +19,7 @@ const styles = () => ({
         height: '100%',
     },
     header: {
+        fontFamily: '"Amatic SC", sans-serif',
         height: '100px',
         display: 'flex',
         justifyContent: 'center',
@@ -36,12 +37,13 @@ const styles = () => ({
     },
     title: {
         fontSize: '2rem',
+        fontFamily: '"Amatic SC", sans-serif',
     },
     group: {
         display: 'flex',
         cursor: 'pointer',
         justifyContent: 'space-between',
-        backgroundColor: '#e4cce459',
+        backgroundColor: '#6c4c3659',
         padding: '10px',
         height: '120px',
         marginBottom: '10px',

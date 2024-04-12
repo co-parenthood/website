@@ -25,6 +25,7 @@ const styles = (theme: Theme) => ({
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: isMobile ? '1.5rem' : '2rem',
+        fontFamily: '"Amatic SC", sans-serif',
     },
     hero: {
         backgroundColor: '#178c98',
@@ -48,6 +49,8 @@ const styles = (theme: Theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700',
         flexDirection: 'column',
         '&:hover': {
             transform: 'scale(1.05)',

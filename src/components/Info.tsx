@@ -14,6 +14,7 @@ const styles = (theme: Theme) => ({
     },
     header: {
         padding: `${theme.spacing(isMobile ? 1 : 2)}px 0`,
+        fontFamily: '"Amatic SC", sans-serif',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -39,6 +40,7 @@ const styles = (theme: Theme) => ({
     },
     title: {
         fontSize: isMobile ? '1.2rem' : '1.5rem',
+        fontFamily: '"Amatic SC", sans-serif',
     },
     wiki: {
         marginTop: theme.spacing(isMobile ? 1 : 2),
