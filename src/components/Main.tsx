@@ -42,22 +42,25 @@ const styles = (theme: Theme) => ({
         borderRadius: `0 0 1rem 1rem`,
         height: `calc(100% - ${ItemsMargin})`,
         backgroundColor: YellowMain,
+        transition: 'transform 0.2s ease, background-color 0.2s ease',
         '&:hover': {
-            backgroundColor: YellowSecondary,
+            backgroundColor: '#ffec83',
         },
     },
     itemOdd: {
         borderRadius: `1rem 1rem 0 0`,
         marginTop: ItemsMargin,
         backgroundColor: LightBackground,
+        transition: 'transform 0.2s ease, background-color 0.2s ease',
         '&:hover': {
-            backgroundColor: YellowSecondary,
+            backgroundColor: '#d2d5d8',
         },
     },
     itemImage: {
         width: '100%',
         height: '100%',
         objectFit: 'cover',
+        borderRadius: `1rem`,
     },
     title: {
         fontFamily: '"Amatic SC", sans-serif',
