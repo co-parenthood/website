@@ -9,7 +9,7 @@ import { Menu } from './Menu.tsx'
 import { useNavigate } from 'react-router-dom'
 
 const lgbtqCenterImageUrl =
-    'https://lgbtqcenter.org.il/wp-content/uploads/2024/01/TLV_17933_pride-logo-color222.png'
+    'cop-logo.png'
 
 const styles = (theme: Theme) => ({
     toolbarMain: {
@@ -22,9 +22,10 @@ const styles = (theme: Theme) => ({
         justifyContent: 'center',
     },
     title: {
-        fontWeight: 400,
+        fontWeight: 700,
         cursor: 'pointer',
         userSelect: 'none',
+        fontFamily: '"Amatic SC", sans-serif',
         width: 'fit-content',
     },
     logo: {
@@ -44,8 +45,9 @@ export const Header = withStyles(styles)(({
     return (
         <Toolbar className={classes.toolbarMain}>
             <img
+                style={{ 'marginRight': '20px' }}
                 className={classes.logo}
-                height={120}
+                height={100}
                 src={lgbtqCenterImageUrl}
                 alt="logo"
             />
@@ -59,7 +61,7 @@ export const Header = withStyles(styles)(({
                     noWrap
                     onClick={() => navigate('/')}
                 >
-                    הורות משותפת
+                     הפורטל להורות משותפת
                 </Typography>
             </div>
             <IconButton

@@ -18,6 +18,7 @@ const styles = (theme: Theme) => ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        fontFamily: '"Amatic SC", sans-serif',
         backgroundColor: Black,
         height: '100%',
         width: '100%',
@@ -58,6 +59,10 @@ const styles = (theme: Theme) => ({
         height: '100%',
         objectFit: 'cover',
     },
+    title: {
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700'
+    }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
@@ -98,7 +103,7 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         onClick={() => onNavigate(item.route)}
                     >
                         {index % 2 === 1 && img}
-                        <Typography variant="h4" gutterBottom>
+                        <Typography variant="h4" gutterBottom className={classes.title}>
                             {item.title}
                         </Typography>
                         {index % 2 === 0 && img}
