@@ -24,6 +24,7 @@ const styles = () => ({
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '2rem',
+        fontFamily: '"Amatic SC", sans-serif',
     },
     hero: {
         backgroundColor: '#178c98',
