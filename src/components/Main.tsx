@@ -1,46 +1,46 @@
 import { Theme, withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Contents } from '../contents.ts'
-import {
-    Black,
-    LightBackground,
-    YellowMain,
-    YellowSecondary,
-} from '../theme.ts'
+import { Black, LightBackground, YellowMain } from '../theme.ts'
 import { useNavigate } from 'react-router-dom'
 import ReactGA from 'react-ga4'
 import { clsx } from 'clsx'
+import { isMobile } from '../utils/mobile.ts'
 
-const ItemsMargin = '2rem'
+const ItemsMargin = isMobile ? '1rem' : '2rem'
 
 const styles = (theme: Theme) => ({
     main: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: isMobile ? 'column' : 'row',
         justifyContent: 'space-between',
         fontFamily: '"Amatic SC", sans-serif',
         backgroundColor: Black,
         height: '100%',
         width: '100%',
-        padding: `0 ${theme.spacing(4)}px`,
+        padding: isMobile
+            ? `${theme.spacing(2)}px 0`
+            : `0 ${theme.spacing(4)}px`,
+        gap: ItemsMargin,
     },
     item: {
-        margin: `0 ${ItemsMargin}`,
         minWidth: '120px',
         flexGrow: 1,
         width: '100%',
         height: '100%',
         color: Black,
         textAlign: 'center',
-        padding: theme.spacing(3),
+        padding: theme.spacing(isMobile ? 1 : 3),
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'column',
-        gap: theme.spacing(1),
+        gap: theme.spacing(isMobile ? 0 : 1),
+        justifyContent: 'center',
     },
     itemEven: {
-        borderRadius: `0 0 1rem 1rem`,
-        height: `calc(100% - ${ItemsMargin})`,
+        borderRadius: isMobile ? `0 1rem 1rem 0` : `0 0 1rem 1rem`,
+        marginRight: ItemsMargin,
+        height: isMobile ? 200 : `calc(100% - ${ItemsMargin})`,
         backgroundColor: YellowMain,
         transition: 'transform 0.2s ease, background-color 0.2s ease',
         '&:hover': {
@@ -48,8 +48,10 @@ const styles = (theme: Theme) => ({
         },
     },
     itemOdd: {
-        borderRadius: `1rem 1rem 0 0`,
-        marginTop: ItemsMargin,
+        borderRadius: isMobile ? `1rem 0 0 1rem` : `1rem 1rem 0 0`,
+        marginTop: isMobile ? 'unset' : ItemsMargin,
+        width: isMobile ? `calc(100% - ${ItemsMargin})` : 'unset',
+        height: isMobile ? 200 : `calc(100% - ${ItemsMargin})`,
         backgroundColor: LightBackground,
         transition: 'transform 0.2s ease, background-color 0.2s ease',
         '&:hover': {
@@ -58,14 +60,15 @@ const styles = (theme: Theme) => ({
     },
     itemImage: {
         width: '100%',
-        height: '100%',
+        height: isMobile ? 120 : '100%',
         objectFit: 'cover',
         borderRadius: `1rem`,
     },
     title: {
         fontFamily: '"Amatic SC", sans-serif',
-        fontWeight: '700'
-    }
+        fontWeight: '700',
+        margin: 0,
+    },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
@@ -106,7 +109,11 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         onClick={() => onNavigate(item.route)}
                     >
                         {index % 2 === 1 && img}
-                        <Typography variant="h4" gutterBottom className={classes.title}>
+                        <Typography
+                            variant="h4"
+                            gutterBottom
+                            className={classes.title}
+                        >
                             {item.title}
                         </Typography>
                         {index % 2 === 0 && img}
