@@ -82,6 +82,10 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         onClick={() => clickNavigate(item.route)}
                         style={{
                             marginTop: index % 2 === 0 ? 'none' : ItemsMargin,
+                            borderRadius:
+                                index % 2 === 0
+                                    ? `0 0 1rem 1rem`
+                                    : `1rem 1rem 0 0`,
                             height:
                                 index % 2 === 1
                                     ? 'none'
