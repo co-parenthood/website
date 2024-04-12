@@ -1,6 +1,6 @@
 import { Theme, withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
-import { CommunityRoute } from '../routes.ts'
+import { JoinRoute } from '../routes.ts'
 import { Contents } from '../contents.ts'
 import { Black } from '../theme.ts'
 import { Tooltip } from '@mui/material'
@@ -68,13 +68,14 @@ const styles = (theme: Theme) => ({
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
+// @ts-ignore
 export const Providers = withStyles(styles)(({
     classes,
 }: {
     classes: Classes
 }) => {
     const { pathname } = useLocation()
-    if (pathname.endsWith(CommunityRoute)) {
+    if (pathname.endsWith(JoinRoute)) {
         return
     }
     return (

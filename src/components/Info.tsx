@@ -1,6 +1,6 @@
 import { withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
-import { CommunityRoute } from '../routes.ts'
+import { JoinRoute } from '../routes.ts'
 
 const styles = () => ({
     mainContainer: {
@@ -16,6 +16,7 @@ const styles = () => ({
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '2rem',
+        userSelect: 'none',
     },
     hero: {
         backgroundColor: '#204a4e',
@@ -37,14 +38,14 @@ const styles = () => ({
         fontSize: '1.5rem',
     },
     wiki: {
-        marginTop: '20px'
-    }
+        marginTop: '20px',
+    },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
 export const Info = withStyles(styles)(({ classes }: { classes: Classes }) => {
     const { pathname } = useLocation()
-    if (pathname.endsWith(CommunityRoute)) {
+    if (pathname.endsWith(JoinRoute)) {
         return
     }
     return (
@@ -89,8 +90,12 @@ export const Info = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         הקשורים להריון, טיפולי פוריות, חלוקת אחריות כלכלית,
                         חלוקת ימי טיפול בילד וסוגיות כמו חינוך, הסעות ועוד.
                     </div>
-                    <div className={classes.wiki}>מתוך ויקיפדיה (הזכויות שמורות)</div>                    
-                    <a href='https://he.wikipedia.org/wiki/%D7%94%D7%95%D7%A8%D7%95%D7%AA_%D7%9E%D7%A9%D7%95%D7%AA%D7%A4%D7%AA'>לעיון בערך המלא</a>
+                    <div className={classes.wiki}>
+                        מתוך ויקיפדיה (הזכויות שמורות)
+                    </div>
+                    <a href="https://he.wikipedia.org/wiki/%D7%94%D7%95%D7%A8%D7%95%D7%AA_%D7%9E%D7%A9%D7%95%D7%AA%D7%A4%D7%AA">
+                        לעיון בערך המלא
+                    </a>
                 </div>
             </div>
         </div>

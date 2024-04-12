@@ -2,7 +2,7 @@ import { Theme, withStyles } from '@material-ui/core/styles'
 import { clsx } from 'clsx'
 import { YellowMain } from '../theme.ts'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { CommunityRoute } from '../routes.ts'
+import { JoinRoute } from '../routes.ts'
 
 const styles = (theme: Theme) => ({
     balloon: {
@@ -23,13 +23,13 @@ export const Balloon = withStyles(styles)(({
 }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    if (pathname.endsWith(CommunityRoute)) {
+    if (pathname.endsWith(JoinRoute)) {
         return
     }
     return (
         <div
             className={clsx(classes.balloon, 'speech-bubble', 'round')}
-            onClick={() => navigate(CommunityRoute)}
+            onClick={() => navigate(JoinRoute)}
         >
             <div>אשמח ללוות/ ליווי בתהליך</div>
         </div>
