@@ -1,6 +1,4 @@
 export const YellowMain = '#fecc31'
 export const YellowSecondary = '#fff4d3'
 export const Black = '#010000'
-export const LightBackground = '#d9d8d9'
-export const BoxGray = '#d9d9d9'
-export const BoxBlue = '#bcddf1'
+export const LightBackground = '#ebeef1'

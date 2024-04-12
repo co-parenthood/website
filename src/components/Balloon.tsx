@@ -31,7 +31,7 @@ export const Balloon = withStyles(styles)(({
             className={clsx(classes.balloon, 'speech-bubble', 'round')}
             onClick={() => navigate(JoinRoute)}
         >
-            <div>אשמח ללוות/ ליווי בתהליך</div>
+            <div>אשמח ללוות / ליווי בתהליך</div>
         </div>
     )
 })

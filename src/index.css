@@ -20,7 +20,6 @@ body {
     --arrow-w: 0.5em;
     --arrow-h: 1em;
     --bubble-corners: 0;
-    --w: 12em;
     --border-size: 3px;
     --text-color: black;
     --bubble-color: #fecc31;
@@ -36,7 +35,6 @@ body {
     padding: 1em;
     position: relative;
     border-radius: var(--bubble-corners);
-    max-width: var(--w);
 }
 
 .speech-bubble.round {

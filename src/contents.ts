@@ -24,7 +24,7 @@ export const Contents = {
         },
         {
             route: GroupsRoute,
-            image: 'comunity.png',
+            image: 'community.png',
             title: 'קהילות',
         },
     ],
