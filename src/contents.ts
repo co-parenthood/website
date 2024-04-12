@@ -35,8 +35,47 @@ export const Contents = {
     },
     providers: [
         {
-            name: 'עורך דין',
-            image: 'https://i.imgur.com/Lrsmu19.png',
+            title: 'ייעוץ משפטי',
+            image: '/law.png',
+            links: [
+                {
+                    url: 'https://www.lgbt.org.il/legal',
+                    title: 'האגודה למען הלהט״ב',
+                },
+            ],
+        },
+        {
+            title: 'גישור',
+            image: '/mediation.png',
+            links: [
+                {
+                    url: 'https://lp.newfamily.org.il',
+                    title: 'משפחה חדשה',
+                },
+            ],
+        },
+        {
+            title: 'סוכניות פונדקאות',
+            image: '/surrogate.png',
+            links: [],
+        },
+        {
+            title: '                            חברות למציאת פרטנרים להורות משותפת',
+            image: '/partnership.png',
+            links: [
+                {
+                    url: 'https://www.oro-il.co.il',
+                    title: 'ORO',
+                },
+                {
+                    url: 'https://www.hachasida.com',
+                    title: 'החסידה',
+                },
+                {
+                    url: 'https://babyli.co.il',
+                    title: 'BABY LI',
+                },
+            ],
         },
     ],
     contracts: [

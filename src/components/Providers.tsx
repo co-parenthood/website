@@ -1,22 +1,26 @@
-import { withStyles } from '@material-ui/core/styles'
+import { Theme, withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
 import { CommunityRoute } from '../routes.ts'
+import { Contents } from '../contents.ts'
+import { Black } from '../theme.ts'
+import { Tooltip } from '@mui/material'
 
-const styles = () => ({
+const styles = (theme: Theme) => ({
     mainContainer: {
         width: '100%',
         height: '100%',
         backgroundColor: 'black',
         color: 'white',
-        fontSize: '1rem'
+        fontSize: '1rem',
     },
     content: {
         width: 'calc(100% - 220px)',
         display: 'flex',
-        justifyContent: 'center',
-        padding: '30px',
-        height: '100%'
-
+        flexDirection: 'column',
+        justifyContent: 'start',
+        padding: theme.spacing(4),
+        height: '100%',
+        gap: theme.spacing(4),
     },
     header: {
         height: '100px',
@@ -24,6 +28,7 @@ const styles = () => ({
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '2rem',
+        userSelect: 'none',
     },
     hero: {
         backgroundColor: '#dd92bb',
@@ -31,31 +36,35 @@ const styles = () => ({
         display: 'grid',
         gridTemplateColumns: 'auto auto',
         gap: '10px',
-        padding: '10px' 
+        padding: '10px',
     },
     title: {
-        fontSize: '1.5rem'
+        fontSize: '1.5rem',
     },
-    infoItem:{
+    infoItem: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
         height: '100%',
         backgroundColor: '#fcf1f152',
-        borderRadius: '10px'
+        borderRadius: '10px',
     },
     img: {
         borderRadius: '18px',
-        objectFit: 'cover'
+        objectFit: 'cover',
     },
     categoryTitle: {
-        width: '350px',
-        height: '20px',
+        width: '100%',
         fontSize: '1.5rem',
         color: '#a34545',
-        fontWeight: '600'
-    }
+        fontWeight: '600',
+    },
+    links: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: theme.spacing(1),
+    },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
@@ -69,37 +78,42 @@ export const Providers = withStyles(styles)(({
         return
     }
     return (
-       <div className={classes.mainContainer}>
-        <div className={classes.header}>נותני שירותים</div>
-        <div className={classes.hero}>
-            <div className={classes.infoItem}>
-                <img  src="/law.png" width='200px' height='200px' className={classes.img}></img>
-                <div className={classes.content}>
-                    <div className={classes.categoryTitle}>עורכי דין</div>
-                </div>
-            </div>
-            <div className={classes.infoItem}>
-            <img  src="/surogate.png" width='200px' height='200px' className={classes.img}></img>
-                <div className={classes.content}>
-                    <div className={classes.categoryTitle}>סוכנויות פונדקאות /תרומה</div>
-                    <div></div>
-                </div>
-            </div>
-            <div className={classes.infoItem}>
-            <img  src="/partnership.png" width='200px' height='200px' className={classes.img}></img>
-                <div className={classes.content}>
-                    <div className={classes.categoryTitle}>חברות למציאת פרטנרים להורות משותפת</div>
-                    <div></div>
-                </div>
-            </div>
-            <div className={classes.infoItem}>
-            <img  src="/mediation.png" width='200px' height='200px' className={classes.img}></img>
-                <div className={classes.content}>
-                    <div className={classes.categoryTitle}>גישור</div>
-                    <div></div>
-                </div>
+        <div className={classes.mainContainer}>
+            <div className={classes.header}>נותני שירותים</div>
+            <div className={classes.hero}>
+                {Contents.providers.map((provider) => (
+                    <div key={provider.title} className={classes.infoItem}>
+                        <img
+                            src={provider.image}
+                            alt={provider.title}
+                            width={200}
+                            height={200}
+                            className={classes.img}
+                        ></img>
+                        <div className={classes.content}>
+                            <div className={classes.categoryTitle}>
+                                {provider.title}
+                            </div>
+                            <div className={classes.links}>
+                                {provider.links.map((link) => (
+                                    <div key={link.title}>
+                                        <Tooltip title={link.url}>
+                                            <a
+                                                href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style={{ color: Black }}
+                                            >
+                                                {link.title}
+                                            </a>
+                                        </Tooltip>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
-       </div>
     )
 })
