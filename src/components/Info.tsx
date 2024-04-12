@@ -18,7 +18,7 @@ const styles = () => ({
         fontSize: '2rem',
     },
     hero: {
-        backgroundColor: '#178c98',
+        backgroundColor: '#204a4e',
         height: '400px',
         display: 'flex',
         justifyContent: 'center',
@@ -36,6 +36,9 @@ const styles = () => ({
     title: {
         fontSize: '1.5rem',
     },
+    wiki: {
+        marginTop: '20px'
+    }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
@@ -46,7 +49,7 @@ export const Info = withStyles(styles)(({ classes }: { classes: Classes }) => {
     }
     return (
         <div className={classes.mainContainer}>
-            <div className={classes.header}>מהי הורות משותפת?</div>
+            <div className={classes.header}>מהי הורות משותפת</div>
             <div className={classes.hero}>
                 <div className={classes.image}>
                     <img src="/parents.png" width="400px" height="400px"></img>
@@ -86,6 +89,8 @@ export const Info = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         הקשורים להריון, טיפולי פוריות, חלוקת אחריות כלכלית,
                         חלוקת ימי טיפול בילד וסוגיות כמו חינוך, הסעות ועוד.
                     </div>
+                    <div className={classes.wiki}>מתוך ויקיפדיה (הזכויות שמורות)</div>                    
+                    <a href='https://he.wikipedia.org/wiki/%D7%94%D7%95%D7%A8%D7%95%D7%AA_%D7%9E%D7%A9%D7%95%D7%AA%D7%A4%D7%AA'>לעיון בערך המלא</a>
                 </div>
             </div>
         </div>

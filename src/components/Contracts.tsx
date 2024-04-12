@@ -27,7 +27,7 @@ const styles = () => ({
     },
     hero: {
         backgroundColor: '#178c98',
-        height: '500px',
+        height: '465px',
         display: 'flex',
         justifyContent: 'space-around',
         padding: '40px'
@@ -56,7 +56,10 @@ const styles = () => ({
     },
     descript: {
         marginTop: '10px',
-        width: '250px'
+        width: '250px',
+        textAlign: 'center',
+        fontWeight: '600',
+        fontSize: '1.5rem'
     },
     downloadable : {
         width:'300px',
@@ -89,21 +92,21 @@ export const Contracts = withStyles(styles)(({
                 <a href="/pdfs/contracts1.pdf" className={classes.downloadable}></a>
                 <img  src="/contract1.png"   width='270px' className={classes.contractImg} />
                 <div className={classes.descript}>
-                   הסכם  הסכם הסכם מילים מילים בלה בלה בלה שלום אני שחר מילים מילים בלה בלה בלה שלום אני שחר
+                  הסכם הורות משותפת - מרכז חיים אצל האם
                 </div>
             </div>
             <div className={classes.contract}>
                 <a href="/pdfs/contracts1.pdf" className={classes.downloadable}></a>
                 <img src="/contract2.png"  width='270px' className={classes.contractImg}/>
                 <div className={classes.descript}>
-                הסכם הסכם מילים מילים בלה בלה בלה שלום אני שחר הסכם הסכם מילים מילים בלה בלה בלה שלום אני שחר
+                הסכם הורות משותפת - התייחסות לחיים הזוגיים הפרטיים של כל הורה
                 </div>
             </div>
             <div className={classes.contract}>
                 <a href="/pdfs/contracts1.pdf" className={classes.downloadable}></a>
                 <img src="/contract3.png"  width='270px' className={classes.contractImg}/>
                 <div className={classes.descript}>
-                הסכם הסכם מילים מילים בלה בלה בלה שלום אני שחר הסכם הסכם מילים מילים בלה בלה בלה שלום אני שחר
+                    הסכם הורות משותפת - סכום מזונות מוגדל
                 </div>
             </div>
         </div>

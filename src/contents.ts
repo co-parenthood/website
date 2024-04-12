@@ -8,14 +8,9 @@ import {
 export const Contents = {
     main: [
         {
-            route: GroupsRoute,
+            route: InfoRoute,
             image: 'https://i.imgur.com/Lrsmu19.png',
-            title: 'קבוצות פייסבוק',
-        },
-        {
-            route: ProvidersRoute,
-            image: 'https://i.imgur.com/Lrsmu19.png',
-            title: 'נותני שירותים',
+            title: 'מהי הורות משותפת',
         },
         {
             route: ContractsRoute,
@@ -23,9 +18,14 @@ export const Contents = {
             title: 'הסכם הורות משותפת לדוגמא',
         },
         {
-            route: InfoRoute,
+            route: ProvidersRoute,
             image: 'https://i.imgur.com/Lrsmu19.png',
-            title: 'מהי הורות משותפת?',
+            title: 'נותני שירותים',
+        },
+        {
+            route: GroupsRoute,
+            image: 'https://i.imgur.com/Lrsmu19.png',
+            title: 'קבוצות פייסבוק',
         },
     ],
     groups: ['https://i.imgur.com/Lrsmu19.png'],

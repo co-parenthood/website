@@ -14,6 +14,7 @@ const styles = (theme: Theme) => ({
     toolbarMain: {
         padding: `${theme.spacing(4)}px 0`,
         backgroundColor: YellowMain,
+       
     },
     toolbarTitle: {
         flex: 1,

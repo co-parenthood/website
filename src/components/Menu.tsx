@@ -31,7 +31,7 @@ export const Menu = withStyles(styles)(({ classes }: { classes: Classes }) => {
    return( 
         <div className={classes.main}>
             <div className={classes.list}>
-      
+                <Link to="/" className={classes.item}>בית</Link>
                 <Link to="/info" className={classes.item}>מהי הורות משותפת</Link>
                 <Link to="/contracts" className={classes.item}>הסכם הורות משותפת לדוגמה</Link>
                 <Link to="/groups" className={classes.item}>קבוצות פייסבוק</Link>

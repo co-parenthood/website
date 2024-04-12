@@ -26,7 +26,7 @@ const styles = () => ({
         fontSize: '2rem',
     },
     hero: {
-        backgroundColor: '#178c98',
+        backgroundColor: '#dd92bb',
         height: '500px',
         display: 'grid',
         gridTemplateColumns: 'auto auto',
@@ -52,7 +52,9 @@ const styles = () => ({
     categoryTitle: {
         width: '350px',
         height: '20px',
-        fontSize: '1rem'
+        fontSize: '1.5rem',
+        color: '#a34545',
+        fontWeight: '600'
     }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>

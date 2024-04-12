@@ -64,6 +64,25 @@ const styles = (theme: Theme) => ({
             backgroundColor: YellowSecondary,
         },
     },
+    mainContainer : {
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#6f739b'
+    },
+    note: {
+        backgroundImage:  `url(${'/legal-pad.png'})`, 
+        width: '500px',
+        height: '500px',
+        fontSize: '2.9rem',
+        padding: '78px'
+        
+    },
+    link: {
+        color: 'blue'
+    }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
@@ -113,76 +132,83 @@ export const Community = withStyles(styles)(({
         message: '',
     })
     return (
-        <div className={clsx(classes.main, 'speech-bubble', 'round')}>
-            <Typography
-                component="h2"
-                variant="h3"
-                align="right"
-                color="textPrimary"
-                noWrap
-            >
-                ליווי בתהליך
-            </Typography>
-            <Box className={classes.container}>
-                <div className={classes.row} style={{ gap: '2rem' }}>
-                    <div>
-                        <InputItem
-                            classes={classes}
-                            title="שם:"
-                            value={state.name}
-                            setValue={(name) =>
-                                setState((s) => ({ ...s, name }))
-                            }
-                        />
-                        <InputItem
-                            classes={classes}
-                            title="סלולרי:"
-                            value={state.phone}
-                            setValue={(phone) =>
-                                setState((s) => ({ ...s, phone }))
-                            }
-                        />
-                        <InputItem
-                            classes={classes}
-                            title="דוא״ל:"
-                            value={state.email}
-                            setValue={(email) =>
-                                setState((s) => ({ ...s, email }))
-                            }
-                        />
-                    </div>
-                    <div>
-                        <InputItem
-                            classes={classes}
-                            title="נושא ההודעה:"
-                            value={state.subject}
-                            setValue={(subject) =>
-                                setState((s) => ({ ...s, subject }))
-                            }
-                        />
-                        <InputItem
-                            classes={classes}
-                            title="הודעה:"
-                            xl
-                            value={state.message}
-                            setValue={(message) =>
-                                setState((s) => ({ ...s, message }))
-                            }
-                        />
-                        <div
-                            className={classes.row}
-                            style={{ justifyContent: 'end' }}
-                        >
-                            <button
-                                className={classes.button}
-                                onClick={() => alert(JSON.stringify(state))}
-                            >
-                                שליחה
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </Box>
+        // <div className={clsx(classes.main, 'speech-bubble', 'round')}>
+        //     <Typography
+        //         component="h2"
+        //         variant="h3"
+        //         align="right"
+        //         color="textPrimary"
+        //         noWrap
+        //     >
+        //         ליווי בתהליך
+        //     </Typography>
+        //     <Box className={classes.container}>
+        //         <div className={classes.row} style={{ gap: '2rem' }}>
+        //             <div>
+        //                 <InputItem
+        //                     classes={classes}
+        //                     title="שם:"
+        //                     value={state.name}
+        //                     setValue={(name) =>
+        //                         setState((s) => ({ ...s, name }))
+        //                     }
+        //                 />
+        //                 <InputItem
+        //                     classes={classes}
+        //                     title="סלולרי:"
+        //                     value={state.phone}
+        //                     setValue={(phone) =>
+        //                         setState((s) => ({ ...s, phone }))
+        //                     }
+        //                 />
+        //                 <InputItem
+        //                     classes={classes}
+        //                     title="דוא״ל:"
+        //                     value={state.email}
+        //                     setValue={(email) =>
+        //                         setState((s) => ({ ...s, email }))
+        //                     }
+        //                 />
+        //             </div>
+        //             <div>
+        //                 <InputItem
+        //                     classes={classes}
+        //                     title="נושא ההודעה:"
+        //                     value={state.subject}
+        //                     setValue={(subject) =>
+        //                         setState((s) => ({ ...s, subject }))
+        //                     }
+        //                 />
+        //                 <InputItem
+        //                     classes={classes}
+        //                     title="הודעה:"
+        //                     xl
+        //                     value={state.message}
+        //                     setValue={(message) =>
+        //                         setState((s) => ({ ...s, message }))
+        //                     }
+        //                 />
+        //                 <div
+        //                     className={classes.row}
+        //                     style={{ justifyContent: 'end' }}
+        //                 >
+        //                     <button
+        //                         className={classes.button}
+        //                         onClick={() => alert(JSON.stringify(state))}
+        //                     >
+        //                         שליחה
+        //                     </button>
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </Box>
+        // </div>
+        <div className={classes.mainContainer}>
+            <div className={classes.note}>
+                <div>לליווי או ללוות תהליך </div>
+                <div>צרו קשר</div>
+                <a   style={{ color: 'blue' }} href='https://lgbtqcenter.org.il/%D7%A6%D7%A8%D7%95-%D7%A7%D7%A9%D7%A8/' >המרכז הגאה</a>
+            </div>
         </div>
     )
 })

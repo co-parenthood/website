@@ -26,8 +26,8 @@ const styles = () => ({
         fontSize: '2rem',
     },
     hero: {
-        backgroundColor: '#c6a1e4',
-        height: '500px',
+        backgroundColor: '#e7a14d',
+        height: '465px',
         display: 'flex',
         justifyContent: 'space-around',
         padding: '40px',
@@ -43,6 +43,7 @@ const styles = () => ({
         justifyContent: 'space-between',
         backgroundColor: '#e4cce459',
         padding: '10px',
+        height:'120px',
         marginBottom: '10px',
         borderRadius: '10px',
         transition: 'transform 0.2s ease, background-color 0.2s ease', 
@@ -53,11 +54,12 @@ const styles = () => ({
         
     },
     groupText: {
-        width: 'calc(100% - 300px)'
+        width: 'calc(100% - 300px)',
+        fontSize: '1.2rem'
     },
     link : {
         width:'1180px',
-        height:'150px',
+        height:'120px',
         position: 'absolute'
     }
 
@@ -86,7 +88,7 @@ export const Groups = withStyles(styles)(({
         <div className={classes.hero}>
             <div className={classes.group}>
                 <a href="https://www.facebook.com/groups/323886141092537" className={classes.link}></a>
-                <img src="/group1.jpeg" width='270px' height='130px'></img>
+                <img src="/group1.jpeg" width='270px' height='100px'></img>
                 <div className={classes.groupText}>
                     <div className={classes.title}>הורות משותפת - חיפוש בן או בת זוג</div>
                     <div>המקום להכיר בני או בנות זוג לצורך הבאת ילד לעולם בהורות משותפת.</div>
@@ -98,11 +100,11 @@ export const Groups = withStyles(styles)(({
                     <div className={classes.title}>הורות משותפת - מציאת שותפ/ה</div>
                     <div>מטרת הקבוצה, לחבר ביניכם ולצור הורות משותפת, אך לא עוסקת בהיקף המשמורת או הסדרי השהייה ו/או בעניין הוצאות גידול הילד/ים.</div>
                 </div>
-                <img src="/group2.jpeg" width='270px' height='130px'></img>
+                <img src="/group2.jpeg" width='270px' height='100px'></img>
             </div>
             <div className={classes.group}>
                 <a href="https://www.facebook.com/groups/2432256350346376/" className={classes.link}></a>
-                <img src="/group3.jpeg" width='270px' height='130px'></img>
+                <img src="/group3.jpeg" width='270px' height='100px'></img>
                 <div className={classes.groupText}>
                     <div className={classes.title}>הורות משותפת - כל מה שרצית לדעת</div>
                     <div>כאן זה המקום לשאול, להתעניין, לבדוק כל נושא משפטי.</div>
