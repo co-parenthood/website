@@ -1,9 +1,12 @@
-import { withStyles } from '@material-ui/core/styles'
+import { Theme, withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
 import { JoinRoute } from '../routes.ts'
 import { Contents } from '../contents.ts'
+import { isMobile } from '../utils/mobile.ts'
+import { Tooltip } from '@mui/material'
+import DownloadIcon from '@mui/icons-material/Download'
 
-const styles = () => ({
+const styles = (theme: Theme) => ({
     mainContainer: {
         width: '100%',
         height: '100%',
@@ -12,33 +15,34 @@ const styles = () => ({
         fontSize: '1rem',
     },
     content: {
-        width: 'calc(100% - 220px)',
         display: 'flex',
         justifyContent: 'center',
-        padding: '30px',
         height: '100%',
     },
     header: {
-        height: '100px',
         display: 'flex',
+        padding: theme.spacing(isMobile ? 1 : 2),
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '2rem',
+        fontSize: isMobile ? '1.5rem' : '2rem',
     },
     hero: {
         backgroundColor: '#178c98',
-        height: '465px',
+        padding: `${theme.spacing(isMobile ? 1 : 4)}px ${theme.spacing(isMobile ? 1 : 2)}px`,
+        width: '100%',
         display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
         justifyContent: 'space-around',
-        padding: '40px',
+        alignItems: 'center',
     },
     title: {
         fontSize: '1.5rem',
     },
     contract: {
+        margin: theme.spacing(2),
         cursor: 'pointer',
-        borderRadius: '10px',
-        width: '300px',
+        borderRadius: '1rem',
+        width: 'fit-content',
         backgroundColor: '#ebebeb3b',
         transition: 'transform 0.2s ease, background-color 0.2s ease',
         display: 'flex',
@@ -51,14 +55,19 @@ const styles = () => ({
         },
     },
     contractImg: {
-        borderRadius: '10px',
+        borderRadius: '1rem',
     },
-    descript: {
-        marginTop: '10px',
-        width: '250px',
+    description: {
+        margin: theme.spacing(1),
+        width: '100%',
         textAlign: 'center',
-        fontWeight: '600',
-        fontSize: '1.5rem',
+        fontWeight: '500',
+        fontSize: '1rem',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '1rem',
     },
     downloadable: {
         width: '300px',
@@ -84,21 +93,26 @@ export const Contracts = withStyles(styles)(({
             <div className={classes.header}>הסכם הורות משותפת לדוגמה</div>
             <div className={classes.hero}>
                 {Contents.contracts.map((contract) => (
-                    <div className={classes.contract}>
-                        <a
-                            href={contract.link}
-                            className={classes.downloadable}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        />
-                        <img
-                            src={contract.preview}
-                            alt={contract.name}
-                            width="270px"
-                            className={classes.contractImg}
-                        />
-                        <div className={classes.descript}>{contract.name}</div>
-                    </div>
+                    <Tooltip title="להורדה">
+                        <div className={classes.contract}>
+                            <a
+                                href={contract.link}
+                                className={classes.downloadable}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            />
+                            <img
+                                src={contract.preview}
+                                alt={contract.name}
+                                width="270px"
+                                className={classes.contractImg}
+                            />
+                            <div className={classes.description}>
+                                {contract.name}{' '}
+                                <DownloadIcon fontSize="small" />
+                            </div>
+                        </div>
+                    </Tooltip>
                 ))}
             </div>
         </div>

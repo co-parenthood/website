@@ -2,6 +2,7 @@ import { Theme, withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
 import { JoinRoute } from '../routes.ts'
 import { Contents } from '../contents.ts'
+import { isMobile } from '../utils/mobile.ts'
 
 const styles = (theme: Theme) => ({
     mainContainer: {
@@ -12,33 +13,36 @@ const styles = (theme: Theme) => ({
         fontSize: '1rem',
     },
     header: {
-        height: '100px',
+        padding: `${theme.spacing(isMobile ? 1 : 2)}px 0`,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: '2rem',
+        fontSize: isMobile ? '1.5rem' : '2rem',
         userSelect: 'none',
     },
     hero: {
         backgroundColor: '#204a4e',
         height: 'fit-content',
         display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    image: {
-        height: '400px',
-    },
+    image: {},
     info: {
         width: '100%',
         height: '100%',
-        padding: theme.spacing(4),
+        padding: theme.spacing(isMobile ? 1 : 4),
+    },
+    paragraph: {
+        marginTop: theme.spacing(1),
     },
     title: {
-        fontSize: '1.5rem',
+        fontSize: isMobile ? '1.2rem' : '1.5rem',
     },
     wiki: {
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(isMobile ? 1 : 2),
+        fontSize: '0.8rem',
     },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
@@ -57,8 +61,8 @@ export const Info = withStyles(styles)(({ classes }: { classes: Classes }) => {
                     <img
                         alt="info"
                         src={Contents.info.image}
-                        height="400px"
-                    ></img>
+                        height={isMobile ? 200 : 400}
+                    />
                 </div>
                 <div className={classes.info}>
                     <div className={classes.title}>{Contents.info.title} </div>
@@ -68,16 +72,19 @@ export const Info = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         ))}
                     </ul>
                     {Contents.info.paragraphs.map((p) => (
-                        <div key={p}>{p}</div>
+                        <div key={p} className={classes.paragraph}>
+                            {p}
+                        </div>
                     ))}
-                    <div className={classes.wiki}>{Contents.info.credit}</div>
-                    <a
-                        href={Contents.info.creditLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {Contents.info.creditLink}
-                    </a>
+                    <div className={classes.wiki}>
+                        <a
+                            href={Contents.info.creditLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {Contents.info.credit}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

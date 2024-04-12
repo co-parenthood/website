@@ -7,14 +7,15 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { useState } from 'react'
 import { Menu } from './Menu.tsx'
 import { useNavigate } from 'react-router-dom'
+import { isMobile } from '../utils/mobile.ts'
 
-const lgbtqCenterImageUrl =
-    'cop-logo.png'
+const lgbtqCenterImageUrl = 'cop-logo.png'
 
 const styles = (theme: Theme) => ({
     toolbarMain: {
-        padding: `${theme.spacing(4)}px 0`,
+        padding: `${theme.spacing(isMobile ? 2 : 4)}px 0`,
         backgroundColor: YellowMain,
+        minHeight: 'fit-content',
     },
     titleContainer: {
         flex: 1,
@@ -29,6 +30,7 @@ const styles = (theme: Theme) => ({
         width: 'fit-content',
     },
     logo: {
+        marginRight: theme.spacing(isMobile ? 1 : 2),
         position: 'absolute',
     },
 })
@@ -45,9 +47,8 @@ export const Header = withStyles(styles)(({
     return (
         <Toolbar className={classes.toolbarMain}>
             <img
-                style={{ 'marginRight': '20px' }}
                 className={classes.logo}
-                height={100}
+                height={isMobile ? 60 : 100}
                 src={lgbtqCenterImageUrl}
                 alt="logo"
             />
@@ -55,13 +56,13 @@ export const Header = withStyles(styles)(({
                 <Typography
                     className={classes.title}
                     component="h2"
-                    variant="h2"
+                    variant={isMobile ? 'h4' : 'h2'}
                     align="center"
                     color="textPrimary"
                     noWrap
                     onClick={() => navigate('/')}
                 >
-                     הפורטל להורות משותפת
+                    הפורטל להורות משותפת
                 </Typography>
             </div>
             <IconButton
@@ -70,7 +71,7 @@ export const Header = withStyles(styles)(({
                 sx={{ ml: 2, position: 'absolute', left: 0 }}
             >
                 <Tooltip title="תפריט">
-                    <MenuIcon fontSize="large" />
+                    <MenuIcon fontSize={isMobile ? 'medium' : 'large'} />
                 </Tooltip>
             </IconButton>
             <Drawer

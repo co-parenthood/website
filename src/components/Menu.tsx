@@ -2,13 +2,14 @@ import { Theme, withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
 import { YellowMain, YellowSecondary } from '../theme.ts'
 import { Contents } from '../contents.ts'
+import { isMobile } from '../utils/mobile.ts'
 
 const styles = (theme: Theme) => ({
     main: {
         backgroundColor: YellowMain,
         height: '100%',
         color: 'black',
-        padding: theme.spacing(2),
+        padding: theme.spacing(isMobile ? 1 : 2),
     },
     list: {
         listStyle: 'none',

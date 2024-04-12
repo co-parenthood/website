@@ -62,3 +62,7 @@ body {
 .MuiSvgIcon-fontSizeLarge {
     font-size: 4rem !important;
 }
+
+.MuiSvgIcon-fontSizeMedium {
+    font-size: 2rem !important;
+}

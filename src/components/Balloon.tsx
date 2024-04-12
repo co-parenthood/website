@@ -3,6 +3,7 @@ import { clsx } from 'clsx'
 import { YellowMain } from '../theme.ts'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { JoinRoute } from '../routes.ts'
+import { isMobile } from '../utils/mobile.ts'
 
 const styles = (theme: Theme) => ({
     balloon: {
@@ -23,7 +24,7 @@ export const Balloon = withStyles(styles)(({
 }) => {
     const navigate = useNavigate()
     const { pathname } = useLocation()
-    if (pathname.endsWith(JoinRoute)) {
+    if (isMobile || pathname.endsWith(JoinRoute)) {
         return
     }
     return (
