@@ -6,6 +6,7 @@ import { Drawer, IconButton, Tooltip } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useState } from 'react'
 import { Menu } from './Menu.tsx'
+import { useNavigate } from 'react-router-dom'
 
 const lgbtqCenterImageUrl =
     'https://lgbtqcenter.org.il/wp-content/uploads/2024/01/TLV_17933_pride-logo-color222.png'
@@ -14,11 +15,17 @@ const styles = (theme: Theme) => ({
     toolbarMain: {
         padding: `${theme.spacing(4)}px 0`,
         backgroundColor: YellowMain,
-       
     },
-    toolbarTitle: {
+    titleContainer: {
         flex: 1,
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    title: {
         fontWeight: 400,
+        cursor: 'pointer',
+        userSelect: 'none',
+        width: 'fit-content',
     },
     logo: {
         position: 'absolute',
@@ -33,6 +40,7 @@ export const Header = withStyles(styles)(({
     classes: Classes
 }) => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false)
+    const navigate = useNavigate()
     return (
         <Toolbar className={classes.toolbarMain}>
             <img
@@ -41,16 +49,19 @@ export const Header = withStyles(styles)(({
                 src={lgbtqCenterImageUrl}
                 alt="logo"
             />
-            <Typography
-                component="h2"
-                variant="h2"
-                align="center"
-                color="textPrimary"
-                noWrap
-                className={classes.toolbarTitle}
-            >
-                הורות משותפת
-            </Typography>
+            <div className={classes.titleContainer}>
+                <Typography
+                    className={classes.title}
+                    component="h2"
+                    variant="h2"
+                    align="center"
+                    color="textPrimary"
+                    noWrap
+                    onClick={() => navigate('/')}
+                >
+                    הורות משותפת
+                </Typography>
+            </div>
             <IconButton
                 color="inherit"
                 onClick={() => setMenuOpen(true)}

@@ -1,7 +1,7 @@
 import { Theme, withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Contents } from '../contents.ts'
-import { Black, LightBackground } from '../theme.ts'
+import { Black, LightBackground, YellowSecondary } from '../theme.ts'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import ReactGA from 'react-ga4'
@@ -25,6 +25,9 @@ const styles = (theme: Theme) => ({
         width: '100%',
         height: '100%',
         backgroundColor: LightBackground,
+        '&:hover': {
+            backgroundColor: YellowSecondary,
+        },
         color: Black,
         textAlign: 'center',
         padding: theme.spacing(3),
@@ -53,9 +56,9 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
     const handleButtonClick = (pageClicked: string) => {
         ReactGA.event({
             category: 'User',
-            action: pageClicked
-        });
-    };
+            action: pageClicked,
+        })
+    }
 
     const clickNavigate = (route: string) => {
         handleButtonClick(route)
