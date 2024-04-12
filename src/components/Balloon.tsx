@@ -7,6 +7,8 @@ import { JoinRoute } from '../routes.ts'
 const styles = (theme: Theme) => ({
     balloon: {
         position: 'fixed',
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700',
         bottom: theme.spacing(4),
         left: theme.spacing(2),
         backgroundColor: YellowMain,

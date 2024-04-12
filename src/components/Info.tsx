@@ -12,6 +12,7 @@ const styles = (theme: Theme) => ({
         fontSize: '1rem',
     },
     header: {
+        fontFamily: '"Amatic SC", sans-serif',
         height: '100px',
         display: 'flex',
         justifyContent: 'center',

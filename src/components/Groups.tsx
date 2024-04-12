@@ -19,6 +19,7 @@ const styles = () => ({
         height: '100%',
     },
     header: {
+        fontFamily: '"Amatic SC", sans-serif',
         height: '100px',
         display: 'flex',
         justifyContent: 'center',

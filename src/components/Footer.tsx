@@ -7,6 +7,8 @@ const lgbtqCenterImageUrl =
 
 const styles = (theme: Theme) => ({
     footer: {
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -14,6 +16,10 @@ const styles = (theme: Theme) => ({
         paddingTop: theme.spacing(1),
         paddingBottom: theme.spacing(1),
     },
+    content: {
+        fontFamily: '"Amatic SC", sans-serif',
+        fontWeight: '700',
+    }
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
@@ -27,8 +33,9 @@ export const Footer = withStyles(styles)(
             <Typography
                 variant="subtitle2"
                 align="center"
-                color="textSecondary"
+                color="textPrimary"
                 component="p"
+                className={classes.content}
             >
                 כל הזכויות שמורות לעיריית תל-אביב-יפו (C) |{' '}
                 {new Date().getFullYear()}
