@@ -1,8 +1,8 @@
-import { withStyles } from '@material-ui/core/styles'
+import { Theme, withStyles } from '@material-ui/core/styles'
 import { useLocation } from 'react-router-dom'
 import { JoinRoute } from '../routes.ts'
 
-const styles = () => ({
+const styles = (theme: Theme) => ({
     mainContainer: {
         width: '100%',
         height: '100%',
@@ -20,25 +20,24 @@ const styles = () => ({
     },
     hero: {
         backgroundColor: '#204a4e',
-        height: '400px',
+        height: 'fit-content',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },
     image: {
-        width: '400px',
         height: '400px',
     },
     info: {
-        width: 'calc(100% - 400px)',
-        height: '400px',
-        padding: '17px',
+        width: '100%',
+        height: '100%',
+        padding: theme.spacing(4),
     },
     title: {
         fontSize: '1.5rem',
     },
     wiki: {
-        marginTop: '20px',
+        marginTop: theme.spacing(2),
     },
 })
 type Classes = Record<keyof ReturnType<typeof styles>, string>

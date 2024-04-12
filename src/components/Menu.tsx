@@ -37,11 +37,11 @@ const styles = (theme: Theme) => ({
 type Classes = Record<keyof ReturnType<typeof styles>, string>
 
 // @ts-ignore
-export const Menu = withStyles(styles)(({ classes }: { classes: Classes }) => {
-    return (
+export const Menu = withStyles(styles)(
+    ({ classes, close }: { classes: Classes; close: () => void }) => (
         <div className={classes.main}>
             <div className={classes.list}>
-                <Link to="/" className={classes.item}>
+                <Link to="/" className={classes.item} onClick={() => close()}>
                     בית
                 </Link>
                 {Contents.main.map((item) => (
@@ -49,14 +49,19 @@ export const Menu = withStyles(styles)(({ classes }: { classes: Classes }) => {
                         key={item.title}
                         to={item.route}
                         className={classes.item}
+                        onClick={() => close()}
                     >
                         {item.title}
                     </Link>
                 ))}
-                <Link to="/community" className={classes.item}>
+                <Link
+                    to="/community"
+                    className={classes.item}
+                    onClick={() => close()}
+                >
                     ליווי בתהליך
                 </Link>
             </div>
         </div>
     )
-})
+)

@@ -1,10 +1,15 @@
 import { Theme, withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { Contents } from '../contents.ts'
-import { Black, LightBackground, YellowSecondary } from '../theme.ts'
+import {
+    Black,
+    LightBackground,
+    YellowMain,
+    YellowSecondary,
+} from '../theme.ts'
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
 import ReactGA from 'react-ga4'
+import { clsx } from 'clsx'
 
 const ItemsMargin = '2rem'
 
@@ -24,10 +29,6 @@ const styles = (theme: Theme) => ({
         flexGrow: 1,
         width: '100%',
         height: '100%',
-        backgroundColor: LightBackground,
-        '&:hover': {
-            backgroundColor: YellowSecondary,
-        },
         color: Black,
         textAlign: 'center',
         padding: theme.spacing(3),
@@ -35,6 +36,22 @@ const styles = (theme: Theme) => ({
         display: 'flex',
         flexDirection: 'column',
         gap: theme.spacing(1),
+    },
+    itemEven: {
+        borderRadius: `0 0 1rem 1rem`,
+        height: `calc(100% - ${ItemsMargin})`,
+        backgroundColor: YellowMain,
+        '&:hover': {
+            backgroundColor: YellowSecondary,
+        },
+    },
+    itemOdd: {
+        borderRadius: `1rem 1rem 0 0`,
+        marginTop: ItemsMargin,
+        backgroundColor: LightBackground,
+        '&:hover': {
+            backgroundColor: YellowSecondary,
+        },
     },
     itemImage: {
         width: '100%',
@@ -49,10 +66,6 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
     const navigate = useNavigate()
     const { main: items } = Contents
 
-    useEffect(() => {
-        ReactGA.send({ hitType: 'pageview', page: window.location.pathname })
-    }, [])
-
     const handleButtonClick = (pageClicked: string) => {
         ReactGA.event({
             category: 'User',
@@ -60,7 +73,7 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
         })
     }
 
-    const clickNavigate = (route: string) => {
+    const onNavigate = (route: string) => {
         handleButtonClick(route)
         navigate(route)
     }
@@ -78,19 +91,11 @@ export const Main = withStyles(styles)(({ classes }: { classes: Classes }) => {
                 return (
                     <div
                         key={item.route}
-                        className={classes.item}
-                        onClick={() => clickNavigate(item.route)}
-                        style={{
-                            marginTop: index % 2 === 0 ? 'none' : ItemsMargin,
-                            borderRadius:
-                                index % 2 === 0
-                                    ? `0 0 1rem 1rem`
-                                    : `1rem 1rem 0 0`,
-                            height:
-                                index % 2 === 1
-                                    ? 'none'
-                                    : `calc(100% - ${ItemsMargin})`,
-                        }}
+                        className={clsx(
+                            classes.item,
+                            index % 2 === 0 ? classes.itemEven : classes.itemOdd
+                        )}
+                        onClick={() => onNavigate(item.route)}
                     >
                         {index % 2 === 1 && img}
                         <Typography variant="h4" gutterBottom>

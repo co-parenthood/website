@@ -77,7 +77,7 @@ export const Header = withStyles(styles)(({
                 open={menuOpen}
                 onClose={() => setMenuOpen(false)}
             >
-                <Menu />
+                <Menu close={() => setMenuOpen(false)} />
             </Drawer>
         </Toolbar>
     )

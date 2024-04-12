@@ -13,19 +13,27 @@ import { Info } from './components/Info.tsx'
 import { Providers } from './components/Providers.tsx'
 import { Contracts } from './components/Contracts.tsx'
 import { Groups } from './components/Groups.tsx'
+import { useEffect } from 'react'
+import ReactGA from 'react-ga4'
 
-export const Router = () => (
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route index element={<Main />} />
-                <Route path={GroupsRoute} element={<Groups />} />
-                <Route path={InfoRoute} element={<Info />} />
-                <Route path={ProvidersRoute} element={<Providers />} />
-                <Route path={ContractsRoute} element={<Contracts />} />
-                <Route path={JoinRoute} element={<Join />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Route>
-        </Routes>
-    </BrowserRouter>
-)
+export const Router = () => {
+    useEffect(() => {
+        ReactGA.send({ hitType: 'pageview', page: window.location.pathname })
+    }, [])
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Main />} />
+                    <Route path={GroupsRoute} element={<Groups />} />
+                    <Route path={InfoRoute} element={<Info />} />
+                    <Route path={ProvidersRoute} element={<Providers />} />
+                    <Route path={ContractsRoute} element={<Contracts />} />
+                    <Route path={JoinRoute} element={<Join />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    )
+}
